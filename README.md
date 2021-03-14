@@ -9,6 +9,8 @@
 
 ## Application Architecture
 
+![1](https://user-images.githubusercontent.com/55049159/111074758-ef4dbc80-8527-11eb-8d0a-220adfd652b7.png)
+
 ## Ex. Spring 없이 Java Application을 이용해서 Hibernate 사용 
 
 #### pom.xml
