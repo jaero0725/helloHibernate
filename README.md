@@ -100,7 +100,6 @@
     	</root>
     </configuration>
 ~~~
-<hr>
 
 ###  src/main/java
 ####  3. Product.java
@@ -148,8 +147,9 @@ public class Product {
 }
 
 ~~~
-<br>
-#### 4. TestMain.java
+
+#### TestMain.java
+
 ~~~java
 package helloHibernate;
 
