@@ -10,8 +10,6 @@
 ## Application Architecture
 <img src="https://user-images.githubusercontent.com/55049159/111074777-068caa00-8528-11eb-8b47-e13b846b0ed2.png" width="700" heigth="400">
 <img src="https://user-images.githubusercontent.com/55049159/111074758-ef4dbc80-8527-11eb-8d0a-220adfd652b7.png" width="700" heigth="400">
-![2](https://user-images.githubusercontent.com/55049159/111074777-068caa00-8528-11eb-8b47-e13b846b0ed2.png)<br><br><br>
-![1](https://user-images.githubusercontent.com/55049159/111074758-ef4dbc80-8527-11eb-8d0a-220adfd652b7.png)<br>
 
 ## Ex. Spring 없이 Java Application을 이용해서 Hibernate 사용 
 
@@ -208,3 +206,18 @@ public class TestMain {
 
 }
 ~~~
+
+#### 실행결과
+<b>logback에 추가하여 데이터베이스에 어떤 값이 나왔는지 console에서 확인 가능</b>
+~~~xml
+	<!-- org.hibernate에 대해서 자세히 보기 위해 추가. -->
+    	<logger name="org.hibernate.type.descriptor.sql">
+    	    <level value="Trace" />
+    	</logger>
+~~~
+![캡처](https://user-images.githubusercontent.com/55049159/111074921-bbbf6200-8528-11eb-9a7e-55b730b8c07b.PNG)
+
+<br>
+
+<b>Mysql workbench에서 testdb에 제대로 들어갔다.</b>
+![console02](https://user-images.githubusercontent.com/55049159/111074923-bc57f880-8528-11eb-9b00-fd6c82861a30.PNG)
