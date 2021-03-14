@@ -4,7 +4,7 @@
 ### Benefits of Hibernate
 > 1) Hiberante provides the Object-to-Relational Mapping(ORM)
 > 2) Hibernate handles all of the low-level SQL
-> - Minimizes the amount of JDBC code you have to develop
+> - JDBC 코드의 양을 최소화 해준다. 
 <br>
 
 ### Application Architecture
