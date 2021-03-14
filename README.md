@@ -215,9 +215,10 @@ public class TestMain {
     	    <level value="Trace" />
     	</logger>
 ~~~
-![캡처](https://user-images.githubusercontent.com/55049159/111074921-bbbf6200-8528-11eb-9a7e-55b730b8c07b.PNG)
-
+![console02](https://user-images.githubusercontent.com/55049159/111074923-bc57f880-8528-11eb-9b00-fd6c82861a30.PNG)
 <br>
 
 <b>Mysql workbench에서 testdb에 제대로 들어갔다.</b>
-![console02](https://user-images.githubusercontent.com/55049159/111074923-bc57f880-8528-11eb-9b00-fd6c82861a30.PNG)
+
+![캡처](https://user-images.githubusercontent.com/55049159/111074921-bbbf6200-8528-11eb-9a7e-55b730b8c07b.PNG)
+
