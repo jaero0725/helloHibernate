@@ -2,12 +2,12 @@
 > Hibernate 연습
 
 ### pom.xml
-> Hiberante-core
-> MySQL Connector
-> lombok
-> logback
+> Hiberante-core <br>
+> MySQL Connector<br>
+> lombok<br>
+> logback<br>
 <br>
-~~~xml
+~~~ 
 		<!-- Hibernate Dependency 추가. -->
 		<!-- Hibernate-core -->
 		<dependency>
@@ -38,10 +38,11 @@
 			<version>1.2.3</version>
 			<scope>runtime</scope>
 		</dependency>
-~~~
+~~~ 
 
 ### src/main/resources
 ### 1. hibernate.cfg.xml 파일 생성
+
 ~~~xml
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
