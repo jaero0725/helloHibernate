@@ -1,6 +1,14 @@
 # helloHibernate
 > Hibernate 연습
 
+### Benefits of Hibernate
+> 1) Hiberante provides the Object-to-Relational Mapping(ORM)
+> 2) Hibernate handles all of the low-level SQL
+> - Minimizes the amount of JDBC code you have to develop
+<br>
+
+### Application Architecture
+
 #### pom.xml
 > <b>의존성 추가</b>
 > 1) Hibernate-core <br>
