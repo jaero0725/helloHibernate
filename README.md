@@ -207,7 +207,7 @@ public class TestMain {
 }
 ~~~
 
-#### <실행결과 (1) product1 추가>
+### <실행결과 (1) product1 추가>
 <b>logback에 추가하여 데이터베이스에 어떤 값이 나왔는지 console에서 확인 가능</b>
 ~~~xml
 	<!-- org.hibernate에 대해서 자세히 보기 위해 추가. -->
@@ -223,7 +223,7 @@ public class TestMain {
 ![캡처](https://user-images.githubusercontent.com/55049159/111074921-bbbf6200-8528-11eb-9a7e-55b730b8c07b.PNG)
 <br>
 
-#### <실행결과 (2) product1, product2 추가 , createQuery() 메서드 사용>
+### <실행결과 (2) product1, product2 추가 , createQuery() 메서드 사용>
 #### TestMain.java 변경
 ~~~java
 package helloHibernate;
