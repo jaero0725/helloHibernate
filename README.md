@@ -2,7 +2,7 @@
 > Hibernate 연습
 
 #### pom.xml
-> <b>추가된파일</b>
+> <b>의존성 추가</b>
 > 1) Hibernate-core <br>
 > 2) MySQL Connector<br>
 > 3) lombok<br>
