@@ -1,9 +1,48 @@
 # helloHibernate
-Hibernate 연습
+> Hibernate 연습
+
+### pom.xml
+> Hiberante-core
+> MySQL Connector
+> lombok
+> logback
+<br>
+~~~xml
+		<!-- Hibernate Dependency 추가. -->
+		<!-- Hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.4.29.Final</version>
+		</dependency>
+		<!-- MySQL Connector -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.20</version>
+		</dependency>
+
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.12</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- logback -->
+		<!-- logback-classic만 넣어주면, core도 들어감 -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
+			<scope>runtime</scope>
+		</dependency>
+~~~
 
 ### src/main/resources
 ### 1. hibernate.cfg.xml 파일 생성
-~~xml
+~~~xml
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
@@ -26,12 +65,12 @@ Hibernate 연습
 		<mapping class="helloHibernate.Product"/>	<!-- mapping 해서 바로 만들어 준다.  -->
 	</session-factory>
 </hibernate-configuration>
-~~
+~~~
 
 ### src/main/java
 2. Product.java
 
-~~java
+~~~java
 package helloHibernate;
 
 
@@ -62,8 +101,8 @@ import lombok.ToString;
 public class Product {
 	
 	@Id							//id로 사용. primary key
-	@GeneratedValue				//키를 생성할때는, 자동으로 생성한다. 
-	@Column(name="product_id")	//컬럼 내용을 지정해줄 수 있다.  - 만약에 name을 지정하지 않는다면, field이름과 같아 진다. 
+	@GeneratedValue						//키를 생성할때는, 자동으로 생성한다. 
+	@Column(name="product_id")				//컬럼 내용을 지정해줄 수 있다.  - 만약에 name을 지정하지 않는다면, field이름과 같아 진다. 
 	private int id;
 	
 	private String name;
@@ -73,4 +112,4 @@ public class Product {
 	private String description;
 }
 
-~~
+~~~
