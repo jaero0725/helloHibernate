@@ -101,8 +101,9 @@
     </configuration>
 ~~~
 <hr>
-### src/main/java
-#### 3. Product.java
+
+###  src/main/java
+####  3. Product.java
 
 ~~~java
 package helloHibernate;
