@@ -69,8 +69,40 @@
 </hibernate-configuration>
 ~~~
 
+#### 2. logback.xml
+~~~
+<?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+    
+    	<!-- console Appender -->
+    	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+    		<encoder>
+    			<Pattern>.%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n
+    			</Pattern>
+    		</encoder>
+    		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+    			<level>TRACE</level>
+    		</filter>
+    	</appender>
+    
+    	<logger name="kr.ac.hansung.cse">
+    	    <level value="DEBUG" />
+    	</logger>
+    	
+    	<!-- org.hibernate에 대해서 자세히 보기 위해 추가. -->
+    	<logger name="org.hibernate.type.descriptor.sql">
+    	    <level value="Trace" />
+    	</logger>
+    	
+    	<root>
+    		<level value="INFO" />
+    		<appender-ref ref="consoleAppender" />
+    	</root>
+    </configuration>
+~~~
+<hr>
 ### src/main/java
-#### 2. Product.java
+#### 3. Product.java
 
 ~~~java
 package helloHibernate;
@@ -115,8 +147,8 @@ public class Product {
 }
 
 ~~~
-
-#### 3. TestMain.java
+<br>
+#### 4. TestMain.java
 ~~~java
 package helloHibernate;
 
