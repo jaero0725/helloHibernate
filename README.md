@@ -7,7 +7,7 @@
 > lombok<br>
 > logback<br>
 <br>
-~~~ 
+~~~
 		<!-- Hibernate Dependency 추가. -->
 		<!-- Hibernate-core -->
 		<dependency>
@@ -38,7 +38,7 @@
 			<version>1.2.3</version>
 			<scope>runtime</scope>
 		</dependency>
-~~~ 
+~~~
 
 ### src/main/resources
 ### 1. hibernate.cfg.xml 파일 생성
