@@ -218,7 +218,7 @@ public class TestMain {
 ![console02](https://user-images.githubusercontent.com/55049159/111074923-bc57f880-8528-11eb-9b00-fd6c82861a30.PNG)
 <br>
 
-<b>Mysql workbench |  testdb 확인</b>
+<b>MySQL workbench |  testdb 확인</b>
 
 ![캡처](https://user-images.githubusercontent.com/55049159/111074921-bbbf6200-8528-11eb-9a7e-55b730b8c07b.PNG)
 
