@@ -1,13 +1,13 @@
 # helloHibernate
 > Hibernate 연습
 
-### pom.xml
+#### pom.xml
 > Hiberante-core <br>
 > MySQL Connector<br>
 > lombok<br>
-> logback<br>
-<br>
-~~~
+> logback<br><br>
+
+
 		<!-- Hibernate Dependency 추가. -->
 		<!-- Hibernate-core -->
 		<dependency>
@@ -38,10 +38,10 @@
 			<version>1.2.3</version>
 			<scope>runtime</scope>
 		</dependency>
-~~~
+
 
 ### src/main/resources
-### 1. hibernate.cfg.xml 파일 생성
+#### 1. hibernate.cfg.xml 파일 생성
 
 ~~~xml
 <!DOCTYPE hibernate-configuration PUBLIC
@@ -69,7 +69,7 @@
 ~~~
 
 ### src/main/java
-2. Product.java
+#### 2. Product.java
 
 ~~~java
 package helloHibernate;
