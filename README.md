@@ -2,10 +2,11 @@
 > Hibernate 연습
 
 #### pom.xml
-> Hiberante-core <br>
-> MySQL Connector<br>
-> lombok<br>
-> logback<br><br>
+> <b>추가된파일</b>
+> 1) Hibernate-core <br>
+> 2) MySQL Connector<br>
+> 3) lombok<br>
+> 4) logback<br><br>
 
 ~~~xml
 		<!-- Hibernate Dependency 추가. -->
