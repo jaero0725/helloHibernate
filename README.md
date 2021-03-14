@@ -293,13 +293,13 @@ public class TestMain {
 }
 
 ~~~
-<b>추가된 정보들 조회</b>
-![리스트 조회](https://user-images.githubusercontent.com/55049159/111075875-4609c500-852d-11eb-864b-85e1e9069169.PNG)
+<b>추가된 정보들 조회</b><br/>
+![리스트 조회](https://user-images.githubusercontent.com/55049159/111075875-4609c500-852d-11eb-864b-85e1e9069169.PNG)<br/>
 
-<b>MySQL workbench |  testdb 확인</b>
-![22222222](https://user-images.githubusercontent.com/55049159/111075876-46a25b80-852d-11eb-9587-4c6601d73f86.PNG)
+<b>MySQL workbench |  testdb 확인</b><br/>
+![22222222](https://user-images.githubusercontent.com/55049159/111075876-46a25b80-852d-11eb-9587-4c6601d73f86.PNG)<br/>
 
-<b>데이터베이스 구성</b>
-![reverse](https://user-images.githubusercontent.com/55049159/111075878-47d38880-852d-11eb-803c-65e9d888d5b6.PNG)
+<b>데이터베이스 구성</b><br/>
+![reverse](https://user-images.githubusercontent.com/55049159/111075878-47d38880-852d-11eb-803c-65e9d888d5b6.PNG)<br/>
 
 
