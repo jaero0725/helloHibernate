@@ -8,6 +8,8 @@
 <br>
 
 ## Application Architecture
+<img src="https://user-images.githubusercontent.com/55049159/111074777-068caa00-8528-11eb-8b47-e13b846b0ed2.png" width="700" heigth="400">
+<img src="https://user-images.githubusercontent.com/55049159/111074758-ef4dbc80-8527-11eb-8d0a-220adfd652b7.png" width="700" heigth="400">
 ![2](https://user-images.githubusercontent.com/55049159/111074777-068caa00-8528-11eb-8b47-e13b846b0ed2.png)<br><br><br>
 ![1](https://user-images.githubusercontent.com/55049159/111074758-ef4dbc80-8527-11eb-8d0a-220adfd652b7.png)<br>
 
