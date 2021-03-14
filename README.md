@@ -114,3 +114,49 @@ public class Product {
 }
 
 ~~~
+
+#### 3. TestMain.java
+~~~java
+package helloHibernate;
+
+
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+//JAVA Application에서 사용하는 법. 
+public class TestMain {
+	
+	private static SessionFactory sessionFactory;		//Spring 에서는 DI 
+	
+	public static void main(String[] args) {
+		
+		//세션 펙토리 얻어 오는 과정. 
+		/*
+		 * Configuration conf = new Configuration(); conf.configure();
+		 * 
+		 * sessionFactory = conf.buildSessionFactory();					//설정파일 명시 = Default 이름 : hibernate.cfg.xml
+		 */
+		
+		sessionFactory = new Configuration().configure().buildSessionFactory();		//chained method 
+		
+		Product product1 = new Product();
+		product1.setName("Notebook");
+		product1.setPrice(2000);
+		product1.setDescription("Awesome notebook");
+		
+		Session session = sessionFactory.openSession(); 		//세션을 만든다.
+		Transaction tx = session.beginTransaction(); 			//트랜젝션 시작
+		
+		session.save(product1); 					//자동적으로 데이터베이스에 저장됨.
+		
+		tx.commit(); 							//트랜젝션 commit
+		session.close();						//세션을 닫음.
+		sessionFactory.close();						//세션 팩토리 닫음. 
+		
+	}
+
+}
+~~~
