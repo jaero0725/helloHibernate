@@ -207,7 +207,7 @@ public class TestMain {
 }
 ~~~
 
-#### <실행결과>
+#### <실행결과 (1) product1 추가>
 <b>logback에 추가하여 데이터베이스에 어떤 값이 나왔는지 console에서 확인 가능</b>
 ~~~xml
 	<!-- org.hibernate에 대해서 자세히 보기 위해 추가. -->
@@ -221,4 +221,85 @@ public class TestMain {
 <b>MySQL workbench |  testdb 확인</b>
 
 ![캡처](https://user-images.githubusercontent.com/55049159/111074921-bbbf6200-8528-11eb-9a7e-55b730b8c07b.PNG)
+<br>
+
+#### <실행결과 (2) product1, product2 추가 , createQuery() 메서드 사용>
+#### TestMain.java 변경
+~~~java
+package helloHibernate;
+
+
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+//JAVA Application에서 사용하는 법. 
+public class TestMain {
+	
+	private static SessionFactory sessionFactory;		//Spring 에서는 DI 
+	
+	public static void main(String[] args) {
+		
+		//세션 펙토리 얻어 오는 과정. 
+		/*
+		 * Configuration conf = new Configuration(); conf.configure();
+		 * 
+		 * sessionFactory = conf.buildSessionFactory();					//설정파일 명시 = Default 이름 : hibernate.cfg.xml
+		 */
+		
+		sessionFactory = new Configuration().configure().buildSessionFactory();		//chained method 
+		
+		Product product1 = new Product();
+		product1.setName("Notebook");
+		product1.setPrice(2000);
+		product1.setDescription("Awesome notebook");
+		
+		Product product2 = new Product();
+		product2.setName("Notebook2");
+		product2.setPrice(3000);
+		product2.setDescription("Powerful notebook");
+		
+		Session session = sessionFactory.openSession(); 		//세션을 만든다.
+		Transaction tx = session.beginTransaction(); 			//트랜젝션 시작
+	
+		session.save(product1);	
+		session.save(product2);	
+		
+		//바로 DB에 저장되지 않음. 
+		//캐시에 잇음.
+		/*
+		 * Serializable id1 = session.save(product1);				//id를 기억함.
+		 * Product savedProduct = session.get(Product.class, id1);
+		 * System.out.println("saved product " + savedProduct); //캐시에 저장된걸 읽어옴.
+		 * session.save(product1);
+		 */								
+		
+		Query<Product> aQuery = session.createQuery("from Product order by name", Product.class);	//HQL 사용
+		List <Product> products = aQuery.getResultList(); //조회
+		System.out.println(products);
+		
+		tx.commit(); 				//트랜젝션 commit	- 이때 DB에 저장됨. 
+		session.close();			//세션을 닫음.
+		sessionFactory.close();		//세션 팩토리 닫음. 
+		
+	}
+
+}
+
+~~~
+<b>추가된 정보들 조회</b>
+![리스트 조회](https://user-images.githubusercontent.com/55049159/111075875-4609c500-852d-11eb-864b-85e1e9069169.PNG)
+
+<b>MySQL workbench |  testdb 확인</b>
+![22222222](https://user-images.githubusercontent.com/55049159/111075876-46a25b80-852d-11eb-9587-4c6601d73f86.PNG)
+
+<b>데이터베이스 구성</b>
+![reverse](https://user-images.githubusercontent.com/55049159/111075878-47d38880-852d-11eb-803c-65e9d888d5b6.PNG)
+
 
