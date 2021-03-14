@@ -9,7 +9,7 @@
 
 ## Application Architecture
 
-## 예제) Spring 없이, Java Application을 이용해서 Hibernate 사용해보기 
+## Ex. Spring 없이 Java Application을 이용해서 Hibernate 사용 
 
 #### pom.xml
 > <b>의존성 추가</b>
