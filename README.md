@@ -148,7 +148,7 @@ public class Product {
 
 ~~~
 
-#### TestMain.java
+#### 4. TestMain.java
 
 ~~~java
 package helloHibernate;
