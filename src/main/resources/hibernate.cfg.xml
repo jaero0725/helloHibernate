@@ -18,5 +18,6 @@
 		<property name="hbm2ddl.auto">create</property>	<!-- create 테이블을 자동으로 생성해 준다.  drop : 종료되면 삭제  -->
 		
 		<mapping class="helloHibernate.Product"/>	<!-- mapping 해서 바로 만들어 준다.  -->
+		<mapping class="helloHibernate.Category"/>
 	</session-factory>
 </hibernate-configuration>
