@@ -11,7 +11,7 @@
 <img src="https://user-images.githubusercontent.com/55049159/111074777-068caa00-8528-11eb-8b47-e13b846b0ed2.png" width="700" heigth="400">
 <img src="https://user-images.githubusercontent.com/55049159/111074758-ef4dbc80-8527-11eb-8d0a-220adfd652b7.png" width="700" heigth="400">
 
-## Ex. Spring 없이 Java Application을 이용해서 Hibernate 사용 
+# (1)first Ex. Spring 없이 Java Application을 이용해서 Hibernate 사용 
 
 #### pom.xml
 > <b>의존성 추가</b>
@@ -302,4 +302,51 @@ public class TestMain {
 <b>데이터베이스 구성</b><br/>
 ![reverse](https://user-images.githubusercontent.com/55049159/111075878-47d38880-852d-11eb-803c-65e9d888d5b6.PNG)<br/>
 
+---
+# (2)OneToMany
+#### Category.java 추가
+<br/>
+~~~java
+package helloHibernate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@Entity
+@Table(name="category")
+public class Category {
+	
+	@Id
+	@GeneratedValue
+	@Column(name="category_id")
+	private int id;
+	
+	private String name;
+}
+
+~~~
+#### Product.java 수정
+<br/>
+~~~java
+
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="category_id")
+	private Category category;
+~~~
+
+<br/>
+#### /hibernate.cfg.xml , mapping class 
+~~~xml
+	<mapping class="helloHibernate.Category"/>
+~~~
 
