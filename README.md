@@ -304,7 +304,7 @@ public class TestMain {
 ![reverse](https://user-images.githubusercontent.com/55049159/111075878-47d38880-852d-11eb-803c-65e9d888d5b6.PNG)<br/>
 
 ---
-# (2)OneToMany
+# (2)OneToMany - Uni
 #### Category.java 추가
 <br/>
 
