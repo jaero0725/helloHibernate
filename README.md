@@ -434,8 +434,6 @@ public class TestMain {
 ~~~
 
 <br/>
-
-
 #### hibernate.cfg.xml , mapping class 추가
 ~~~xml
 	<mapping class="helloHibernate.Category"/>
