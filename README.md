@@ -306,7 +306,7 @@ public class TestMain {
 # (2)OneToMany
 #### Category.java 추가
 <br/>
-'''java
+~~~java
 package helloHibernate;
 
 import javax.persistence.Column;
@@ -333,23 +333,23 @@ public class Category {
 	
 	private String name;
 }
-'''
+~~~
 
 #### Product.java 수정
 <br/>
-'''java
+~~~java
 
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="category_id")
 	private Category category;
-'''
+~~~
 
 <br/>
 
 #### TestMain.java 수정
 <br/>
 
-'''java
+~~~java
 
 import java.io.Serializable;
 import java.util.List;
@@ -429,11 +429,11 @@ public class TestMain {
 	}
 
 }
-'''
+~~~
 
 <br/>
 #### /hibernate.cfg.xml , mapping class 
-'''xml
+~~~xml
 	<mapping class="helloHibernate.Category"/>
-'''
+~~~
 
