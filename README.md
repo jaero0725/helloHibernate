@@ -11,7 +11,7 @@
 <img src="https://user-images.githubusercontent.com/55049159/111074777-068caa00-8528-11eb-8b47-e13b846b0ed2.png" width="700" heigth="400">
 <img src="https://user-images.githubusercontent.com/55049159/111074758-ef4dbc80-8527-11eb-8d0a-220adfd652b7.png" width="700" heigth="400">
 
-## Ex. Spring 없이 Java Application을 이용해서 Hibernate 사용 
+# (1)first Ex. Spring 없이 Java Application을 이용해서 Hibernate 사용 
 
 #### pom.xml
 > <b>의존성 추가</b>
@@ -302,4 +302,143 @@ public class TestMain {
 <b>데이터베이스 구성</b><br/>
 ![reverse](https://user-images.githubusercontent.com/55049159/111075878-47d38880-852d-11eb-803c-65e9d888d5b6.PNG)<br/>
 
+---
+# (2)OneToMany
+#### Category.java 추가
+<br/>
 
+~~~java
+package helloHibernate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@Entity
+@Table(name="category")
+public class Category {
+	
+	@Id
+	@GeneratedValue
+	@Column(name="category_id")
+	private int id;
+	
+	private String name;
+}
+~~~
+
+#### Product.java 수정
+<br/>
+
+~~~java
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumn(name="category_id")
+	private Category category;
+~~~
+
+<br/>
+
+#### TestMain.java 수정
+<br/>
+
+~~~java
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+//JAVA Application에서 사용하는 법. 
+public class TestMain {
+	private static SessionFactory sessionFactory;		//Spring 에서는 DI 
+	
+	public static void main(String[] args) {
+		
+		//세션 펙토리 얻어 오는 과정. 
+		/*
+		 * Configuration conf = new Configuration(); conf.configure();
+		 * 
+		 * sessionFactory = conf.buildSessionFactory();					//설정파일 명시 = Default 이름 : hibernate.cfg.xml
+		 */
+		
+		sessionFactory = new Configuration().configure().buildSessionFactory();		//chained method 
+		
+		Category category1 = new Category();
+		category1.setName("컴퓨터");
+		
+		Category category2 = new Category();
+		category2.setName("자동차");
+		
+		Product product1 = new Product();
+		product1.setName("Notebook1");
+		product1.setPrice(2000);
+		product1.setDescription("Awesome notebook");
+		product1.setCategory(category1);
+		
+		Product product2 = new Product();
+		product2.setName("Notebook2");
+		product2.setPrice(3000);
+		product2.setDescription("Powerful notebook");
+		product2.setCategory(category1);
+		
+		Product product3 = new Product();
+		product3.setName("Sonata");
+		product3.setPrice(100000);
+		product3.setDescription("Popular Car");
+		product3.setCategory(category2);
+		
+		Session session = sessionFactory.openSession(); 		//세션을 만든다.
+		Transaction tx = session.beginTransaction(); 			//트랜젝션 시작
+	
+		session.save(product1);	
+		session.save(product2);	
+		session.save(product3);	
+		
+		product1.setCategory(null);
+		session.delete(product1);
+		//바로 DB에 저장되지 않음. 
+		//캐시에 잇음.
+		/*
+		 * Serializable id1 = session.save(product1);				//id를 기억함.
+		 * Product savedProduct = session.get(Product.class, id1);
+		 * System.out.println("saved product " + savedProduct); //캐시에 저장된걸 읽어옴.
+		 * session.save(product1);
+		 */								
+		
+		/*
+		 * Query<Product> aQuery = session.createQuery("from Product order by name",
+		 * Product.class); //HQL 사용 List <Product> products = aQuery.getResultList();
+		 * //조회 System.out.println(products);
+		 */
+		
+		tx.commit(); 				//트랜젝션 commit	- 이때 DB에 저장됨. 
+		session.close();			//세션을 닫음.
+		sessionFactory.close();		//세션 팩토리 닫음. 
+	}
+
+}
+~~~
+
+<br/>
+
+
+#### hibernate.cfg.xml , mapping class 추가
+~~~xml
+	<mapping class="helloHibernate.Category"/>
+~~~
+
+#### <테이블>
+![2 결과](https://user-images.githubusercontent.com/55049159/111104191-6ec4a580-8593-11eb-8562-dc0c1eeb1bcc.PNG)
