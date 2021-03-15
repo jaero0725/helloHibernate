@@ -434,8 +434,11 @@ public class TestMain {
 
 <br/>
 
-#### /hibernate.cfg.xml , mapping class 
+
+#### hibernate.cfg.xml , mapping class 추가
 ~~~xml
 	<mapping class="helloHibernate.Category"/>
 ~~~
 
+#### 테이블 결과
+![2 결과](https://user-images.githubusercontent.com/55049159/111104191-6ec4a580-8593-11eb-8562-dc0c1eeb1bcc.PNG)
