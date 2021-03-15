@@ -306,8 +306,8 @@ public class TestMain {
 # (2)OneToMany
 #### Category.java 추가
 <br/>
-~~~java
-		package helloHibernate;
+'''java
+package helloHibernate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -333,8 +333,7 @@ public class Category {
 	
 	private String name;
 }
-
-~~~
+'''
 
 #### Product.java 수정
 <br/>
